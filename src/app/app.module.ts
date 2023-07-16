@@ -13,6 +13,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { UsersComponent } from './dashboard/users/users.component';
+import { ComponentsModule } from '@components/components.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UsersComponent } from './dashboard/users/users.component';
     NgxSpinnerModule.forRoot({ type: 'ball-scale' }),
     NgToastModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ComponentsModule
   ],
   providers: [
     LoaderResolver,
