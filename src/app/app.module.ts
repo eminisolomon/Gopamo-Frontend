@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoaderResolver } from './loader';
+import { NgToastModule } from 'ng-angular-popup';
+import { ToastService } from '@services/toast.service';
+import { HttpClientModule } from '@angular/common/http'
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -22,9 +28,17 @@ import { UsersComponent } from './dashboard/users/users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale' }),
+    NgToastModule,
+    HttpClientModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [
+    LoaderResolver,
+    ToastService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
